@@ -28,10 +28,6 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Admin'], function() {
         return view('admin.citizen_charter');
     });
 
-    Route::get('/admin/organization_structure', function() {
-        return view('admin.organization_structure');
-    });
-
     Route::resource('/admin/citizen_charter/vm', 'CitizenCharter\VisionMission');
     Route::resource('/admin/organization_structure', 'OrganizationStructure');
 });
