@@ -30,4 +30,5 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Admin'], function() {
 
     Route::resource('/admin/citizen_charter/vm', 'CitizenCharter\VisionMission');
     Route::resource('/admin/organization_structure', 'OrganizationStructure');
+    Route::resource('/admin/faqs', 'FAQs');
 });

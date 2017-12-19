@@ -38,7 +38,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="/admin/faqs">
                             <i class="fa fa-question-circle"></i>
                             <p>FAQs</p>
                         </a>
