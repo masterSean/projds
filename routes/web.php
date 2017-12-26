@@ -28,6 +28,7 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Admin'], function() {
         return view('admin.citizen_charter');
     });
 
+    Route::resource('/admin/officials_positions', 'CitizenCharter\OfficialsPositions');
     Route::resource('/admin/organization_functions', 'CitizenCharter\OrganizationFunctions');
     Route::resource('/admin/citizen_charter/vm', 'CitizenCharter\VisionMission');
     Route::resource('/admin/organization_structure', 'OrganizationStructure');

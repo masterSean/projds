@@ -1,7 +1,56 @@
-<div class="col-md-12">
-    <h1>DSWD OFFICIALS & KEY POSITIONS</h1>
+<div class="col-md-12" ng-controller="OfficialsPositionsController">
+    <h2>DSWD OFFICIALS & KEY POSITIONS</h2>
     <br>
+    <form class="form-inline" enctype="multipart/form-data" ng-submit="add()">
+        <div class="form-group">
+            <label for="">Upload File</label>
+            <input class="form-control" type="file" name="image">
+        </div>
+        <button class="btn btn-info">Upload</button>
+    </form>
     <div>
-        <p>Ipsum voluptatum ad nobis suscipit magnam ut at porro quae odit voluptas. Possimus praesentium odio corrupti adipisci officia consequatur quisquam laudantium, molestias quaerat deserunt consequuntur. Facere quasi pariatur perferendis sint porro illo neque. Eveniet dolor amet rem officiis perspiciatis sunt quae consequatur, tempore quaerat molestiae. Nostrum cumque temporibus non vel tempore nihil! Neque accusamus tempora explicabo adipisci tenetur beatae non architecto. Sit id atque molestias possimus reiciendis odit vel eum fugit vitae voluptatibus inventore. Labore vero eius explicabo deserunt quidem veniam necessitatibus. Quia fugiat ducimus sint incidunt atque a. Nostrum nam soluta amet blanditiis eaque. Incidunt vel error aliquid earum.</p>
+        <br>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Primary <i><span class="fa fa-question-circle" data-toggle="tooltip" data-placement="top" title="Is shown to the users"></span></i></th>
+                    <th>Created</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @verbatim
+                <tr ng-repeat="file in files track by $index">
+                    <td><a href="javascript:void(0)">{{ file.name }}</a></td>
+                    <td>
+                        <span class="label label-info" ng-show="file.primary">Primary</span>
+                        <span class="label label-default" ng-hide="file.primary">Hidden</span>
+                    </td>
+                    <td>{{ file.created_at }}</td>
+                    <td>
+                        <div class="btn-group">
+                            <button class="btn btn-info" ng-click="makePrimary($index)"><i class="fa fa-check"></i></button>
+                            <button class="btn btn-info" ng-click="view($index)"><i class="fa fa-image"></i></button>
+                            <button class="btn btn-danger" ng-click="remove($index)"><i class="fa fa-trash"></i></button>
+                        </div>
+                    </td>
+                </tr>
+                @endverbatim
+            </tbody>
+        </table>
+        <div id="positions" class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <h3>@{{ selected.name }}</h3>
+                        <hr>
+                        <div id="img-container" style="width:100%;height:100%;overflow:auto;">
+                            <img src="/storage/offcials_positions/@{{ selected.disk_name }}" alt="officials_positions" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- modal end -->
     </div>
 </div>
