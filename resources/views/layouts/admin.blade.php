@@ -49,6 +49,12 @@
                             <p>Settings</p>
                         </a>
                     </li>
+                    <li>
+                        <a href="/admin/signout">
+                            <i class="fa fa-sign-out"></i>
+                            <p>Logout</p>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
