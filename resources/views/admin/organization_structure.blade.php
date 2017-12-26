@@ -16,7 +16,7 @@
                 <tr>
                     <th>Name</th>
                     <th>Uploaded Date</th>
-                    <th>Primary</th>
+                    <th>Primary <i class="fa fa-question-circle" data-toggle="tooltip" data-placement="left" title="Primary sets what will be viewed by the users"></i></th>
                     <th></th>
                 </tr>
             </thead>
@@ -30,13 +30,27 @@
                     </td>
                     <td>
                         <div class="btn-group">
-                            <button class="btn btn-default"><i class="fa fa-image"></i></button>
+                            <button class="btn btn-default" ng-click="view($index)"><i class="fa fa-image"></i></button>
+                            <button class="btn btn-warning" ng-click="remove($index)"><i class="fa fa-trash"></i></button>
                             <button class="btn btn-info" ng-click="setPrimary($index)"><i class="fa fa-check"></i></button>
                         </div>
                     </td>
                 </tr>
             </tbody>
         </table>
+        
+        <div id="view" class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <h3>@{{ selected.name }}</h3><br>
+                        <div class="img-contianer" style="width:100%;height: auto;overflow:auto;">
+                            <img ng-src="/storage/organization_structure/@{{ selected.file_path }}" alt="organization_structure">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection
 

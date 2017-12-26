@@ -20,6 +20,20 @@ App.controller('OrganizationStructure', ["$scope", "$http", function($scope, $ht
     })
   }
 
+  $scope.view = function(index) {
+    $scope.selected = angular.copy($scope.files[index])
+    $("#view").modal("show");
+  }
+
+  $scope.remove = function(index) {
+    let image = angular.copy($scope.files[index])
+    let confirmed = confirm('Are you sure you want to remove this image?');
+    if (confirmed) {
+      $http.delete('/admin/organization_structure/' + image.id)
+      $scope.files.splice(index, 1)
+    }
+  }
+
   $scope.setPrimary = function(index) {
     let file = $scope.files[index];
     $scope.files = $scope.files.map(function(file) { 

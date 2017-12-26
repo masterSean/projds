@@ -81,6 +81,11 @@
     <script type="text/javascript" src="{{ asset('js/angular.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/angular-resource.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/assets/main.js') }}"></script>
+    <script type="text/javascript">
+        $(document).on('show.bs.modal', '.modal', function() {
+            $(this).appendTo('body');
+        })
+    </script>
     @yield('script')
 </body>
 </html>

@@ -23,14 +23,17 @@ class OrganizationStructure extends Controller
             $file = $request->file('image');
             $file_name = $file->getClientOriginalName();
             $file_extension = $file->getClientOriginalExtension();
-            $file_path = md5($file_name) . "." . $file_extension;
+            $image_name = md5($file_name) . "." . $file_extension;
+            
+            $primary = OS::where('primary', true)->first();
+
             $data = [
-                "name"      => Carbon::now()->toDateString(), 
-                "file_path" => $file_path,
-                "primary"   => false,
+                "name"      => 'Organization_Structure-' . Carbon::now()->toDateString(), 
+                "file_path" => $image_name,
+                "primary"   => $primary === null,
             ];
 
-            Storage::disk('public')->put($file_path, $file);
+            $request->file('image')->storeAs('organization_structure', $image_name, 'public');
 
             $os = OS::create($data);
 
@@ -52,14 +55,16 @@ class OrganizationStructure extends Controller
         }
     }
 
+    public function destroy($id)
+    {
+        $data = OS::find($id);
+        Storage::disk('public')->delete('organization_structure/' . $data->file_path);
+        $data->delete();
+    }
+
     public function show($id)
     {
         $data = OS::all();
-        
-        foreach ($data as $key => $file) {
-            $file['path'] = storage_path('app/public' . $file->file_path);
-        }
-
         return response()->json($data);
     }
 }

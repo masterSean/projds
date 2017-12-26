@@ -32,7 +32,7 @@
                     <td>@{{ faq.created_at }}</td>
                     <td>
                         <div class="btn-group">
-                            <button class="btn btn-info" ng-click="select($index)"><i class="fa fa-envelope"></i></button>
+                            <button class="btn btn-info" ng-click="view($index)"><i class="fa fa-check"></i></button>
                             <button class="btn btn-danger" ng-click="remove($index)"><i class="fa fa-trash"></i></button>
                         </div>
                     </td>
@@ -46,8 +46,11 @@
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-md-12">
-                                <h1>@{{ selected.question }}</h1>
+                                <h3>FAQ's</h3>
                                 <hr>
+                                <label for="">Question: </label>
+                                <h4 style="margin: 5px !important;"><strong>@{{ selected.question }}</strong></h4>
+                                <label for="">Answer: </label>
                                 <p ng-bind-html="selected.answer"></p>
                             </div>
                         </div>

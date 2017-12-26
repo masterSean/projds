@@ -25,7 +25,7 @@ App.controller('FAQs', ["$scope", "$http", "$sce",  function($scope, $http, $sce
   }
 
   $scope.view = function(index) {
-    $scope.selected = $scope.faqs[index];
+    $scope.selected = angular.copy($scope.faqs[index])
     $scope.selected.answer = $sce.trustAsHtml($scope.selected.answer);
     $("#view").modal("show");
   }
