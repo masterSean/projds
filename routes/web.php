@@ -33,3 +33,9 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Admin'], function() {
     Route::resource('/admin/organization_structure', 'OrganizationStructure');
     Route::resource('/admin/faqs', 'FAQs');
 });
+
+Route::group(['middleware' => 'guest'], function() {
+    Route::get('/client/dashboard', function() {
+        return view('client.dashboard');
+    });
+});
