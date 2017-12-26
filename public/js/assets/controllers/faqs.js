@@ -21,6 +21,7 @@ App.controller('FAQs', ["$scope", "$http", "$sce",  function($scope, $http, $sce
     })
 
     $scope.faq = {};
+    $scope.show_form = false;
     $("#editor").trumbowyg('html', '');
   }
 
