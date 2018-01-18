@@ -3,12 +3,12 @@
 @section('content')
 <div>
     <ul id="citizencharter" class="nav nav-tabs" role="tablist">
-        <li role="presentation"><a href="#vision_mission" aria-controls="vision_mission" data-toggle="tab">Vision Mission</a></li>
-        <li role="presentation"><a href="#orgfunc" aria-controls="organizations_functions" data-toggle="tab">Organizations & Functions</a></li>
-        <li role="presentation"><a href="#service" aria-controls="organizations_functions" data-toggle="tab">Service Pledge</a></li>
-        <li role="presentation"><a href="#feedback" aria-controls="organizations_functions" data-toggle="tab">Receiving Feedback</a></li>
-        <li role="presentation"><a href="#frontline" aria-controls="organizations_functions" data-toggle="tab">Frontline Service</a></li>
-        <li class="active" role="presentation"><a href="#officials" aria-controls="organizations_functions" data-toggle="tab">DSWD Officials and Key Positions</a></li>
+        <li role="presentation" style="width:120px;"><a href="#vision_mission" aria-controls="vision_mission" data-toggle="tab">Vision Mission</a></li>
+        <li role="presentation" style="width:120px;"><a href="#orgfunc" aria-controls="organizations_functions" data-toggle="tab">Organizations & Functions</a></li>
+        <li role="presentation" style="width:120px;"><a href="#service" aria-controls="organizations_functions" data-toggle="tab">Service Pledge</a></li>
+        <li role="presentation" style="width:120px;"><a href="#feedback" aria-controls="organizations_functions" data-toggle="tab">Receiving Feedback</a></li>
+        <li role="presentation" style="width:120px;"><a href="#frontline" aria-controls="organizations_functions" data-toggle="tab">Frontline Service</a></li>
+        <li class="active" role="presentation" style="width:150px;"><a href="#officials" aria-controls="organizations_functions" data-toggle="tab">DSWD Officials and Key Positions</a></li>
     </ul>
     <div class="tab-content">
         <div class="tab-pane" id="vision_mission" role="tabpanel">@include('admin.vision_mission')</div>

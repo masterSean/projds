@@ -17,7 +17,11 @@
     <div class="wrapper">
         <div class="sidebar" data-color="azure">
             <div class="sidebar-wrapper">
-                <div class="logo"><a href="" class="simple-text">DSWD</a></div>
+                <div class="logo">
+                    <a href="" class="simple-text">
+                        <img src="{!! asset('images/logo.png') !!}" style="width:200px; height:180px;">
+                    </a>
+                </div>
                 <ul class="nav">
                     <li class="active">
                         <a href="/admin/dashboard">
@@ -67,7 +71,7 @@
                     </div>
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav navbar-left">
-                            <li><a href="">Testing</a></li>
+                            <li><h2><b>Admin Module</b></h2></li>
                         </ul>
                     </div>
                 </div>
