@@ -7,11 +7,10 @@
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,700,300">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{ asset('css/trumbowyg.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/client.main.css') }}">
     @yield('css')
 </head>
 <body>
-    
-    <main>
         <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <ul class="nav navbar-nav">
@@ -32,14 +31,15 @@
                 </ul>
             </div>
         </nav>
+        <div class="clearfix"></div>
         <div class="container">
             @yield('content')
         </div>
-    </main>
-
-    <script type="text/javascript" src="{{ asset('js/jquery.3.2.1.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
-    @yield('script')
+        <footer>
+            <script type="text/javascript" src="{{ asset('js/jquery.3.2.1.min.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
+            @yield('script')
+        </footer>
 </body>
 </html>
 

@@ -1,0 +1,15 @@
+html, body {
+    height: 100%;
+}
+body {
+    background: #f4f4f4;
+    margin:0;
+}
+body .container {
+    background: white;
+    width: 75%;
+    border: 1px solid #e7e7e7;
+    height:100% !important;
+    margin-top:-22px;
+    padding: 20px;
+}
