@@ -1,10 +1,8 @@
 @extends('layouts.client')
 
 @section('content')
-    <h1>Dashboard</h1>
-    <br>
     <!-- carousel -->
-    <div id="carousel" class="carousel slide" data-ride="carousel">
+    <div id="carousel" style="margin-top:100px;" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
             <li data-target="#carousel-example-generic" data-slide-to="1"></li>
