@@ -5,8 +5,13 @@
         <h1>Frequently Asked Questions</h1>
     </div>
     @foreach ($data as $key => $value) 
-        <h2>{{ $value->question }}</h2>
-        <br>
-        {!! $value->answer !!}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="panel-title"><i class="fa fa-comment"></i> {!! $value->question !!}</div>
+            </div>
+            <div class="panel-body">
+                <p>{!! $value->answer !!}</p>
+            </div>
+        </div>
     @endforeach
 @endsection
