@@ -20,21 +20,21 @@
                     <br>
                     <div class="left-navigation">
                         <ul class="list">
-                            <li><a href="/client/dashboard">Home</a></li>
-                            <li><a href="/client/organization_structure">Organization Structure</a></li>
-                            <li><a href="/client/faqs">FAQs</a></li>
+                            <li class="{!! Request::is('client/dashboard') ? 'active_nav' : '' !!}"><a href="/client/dashboard">Home</a></li>
+                            <li class="{!! Request::is('client/organization_structure') ? 'active_nav' : '' !!}"><a href="/client/organization_structure">Organization Structure</a></li>
+                            <li class="{!! Request::is('client/faqs') ? 'active_nav' : '' !!}"><a href="/client/faqs">FAQs</a></li>
                         </ul>
 
                         <br>
 
                         <ul class="list">
                             <h5><strong>Citizens Charter</strong></h5>
-                            <li><a href="/client/citizen_charter/vision_mission">Vision Mission</a></li>
-                            <li><a href="/client/citizen_charter/organization_functions">Organization and Functions</a></li>
-                            <li><a href="/client/citizen_charter/service_pledge">Service Plegde</a></li>
-                            <li><a href="/client/citizen_charter/feedbacks">Receiving Feedback</a></li>
-                            <li><a href="/client/citizen_charter/frontline_services">Frontline Services</a></li>
-                            <li><a href="/client/citizen_charter/dswd_officials">DSWD Officials and Key Positions</a></li>
+                            <li class="{!! Request::is('client/citizen_charter/vision_mission') ? 'active_nav' : '' !!}"><a href="/client/citizen_charter/vision_mission">Vision Mission</a></li>
+                            <li class="{!! Request::is('client/citizen_charter/organization_functions') ? 'active_nav' : '' !!}"><a href="/client/citizen_charter/organization_functions">Organization and Functions</a></li>
+                            <li class="{!! Request::is('client/citizen_charter/service_pledge') ? 'active_nav' : '' !!}"><a href="/client/citizen_charter/service_pledge">Service Plegde</a></li>
+                            <li class="{!! Request::is('client/citizen_charter/feedbacks') ? 'active_nav' : '' !!}"><a href="/client/citizen_charter/feedbacks">Receiving Feedback</a></li>
+                            <li class="{!! Request::is('client/citizen_charter/frontline_services') ? 'active_nav' : '' !!}"><a href="/client/citizen_charter/frontline_services">Frontline Services</a></li>
+                            <li class="{!! Request::is('client/citizen_charter/dswd_officials') ? 'active_nav' : '' !!}"><a href="/client/citizen_charter/dswd_officials">DSWD Officials and Key Positions</a></li>
                         </ul>
                     </div>
                 </div>
