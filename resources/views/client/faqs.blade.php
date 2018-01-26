@@ -5,7 +5,7 @@
         <h1>Frequently Asked Questions</h1>
     </div>
     @foreach ($data as $key => $value) 
-        <div class="panel panel-default">
+        <div class="panel panel-info">
             <div class="panel-heading">
                 <div class="panel-title"><i class="fa fa-comment"></i> {!! $value->question !!}</div>
             </div>
