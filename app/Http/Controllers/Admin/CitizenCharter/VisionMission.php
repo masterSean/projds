@@ -6,12 +6,14 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Models\Admin\VisionMission as VM;
+use App\Models\Logs;
 
 class VisionMission extends Controller
 {
     public function store(Request $request)
     {
         $data = VM::updateOrcreate(['name' => $request->name],['content' => $request->content]);
+        Logs::create(['description' => "Added $data->name"]);
         return $data;
     }
 
@@ -25,12 +27,15 @@ class VisionMission extends Controller
         $vm = VM::find($id);
         $vm->fill($request->all());
         $vm->save();
+        Logs::create(['description' => "Updated $vm->name"]);
 
         return redirect()->back();
     }
 
     public function delete($id)
     {
-        VM::find($id)->delete();
+        $vm = VM::find($id); 
+        Logs::create(['description' => "Deleted $vm->name"]);
+        $vm->delete();
     }
 }
