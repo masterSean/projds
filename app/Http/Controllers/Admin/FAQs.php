@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 
 use App\Models\Admin;
 use App\Models\Admin\FAQs as Faq;
+use App\Models\Logs;
 
 class FAQs extends Controller
 {
@@ -28,7 +29,9 @@ class FAQs extends Controller
      */
     public function store(Request $request)
     {
-        return Faq::create($request->all());
+        $success = Faq::create($request->all());
+        Logs::create(['description' => 'Added new FAQ']);
+        return $success; 
     }
 
     /**
@@ -54,6 +57,7 @@ class FAQs extends Controller
         $faq = Faq::find($id);
         $faq->fill($request->all());
         $faq->save();
+        Logs::create(['description' => "$faq->question has been updated"]);
         return $faq;
     }
 
@@ -67,5 +71,7 @@ class FAQs extends Controller
     {
         $faq = Faq::find($id);
         $faq->delete();
+        Logs::create(['description' => "$faq->question has been deleted"]);
     }
 }
+?>

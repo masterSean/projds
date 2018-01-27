@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Models\Admin\OrganizationsFunctions as OF;
+use App\Models\Logs;
 
 class OrganizationFunctions extends Controller
 {
@@ -17,7 +18,9 @@ class OrganizationFunctions extends Controller
      */
     public function store(Request $request)
     {
-        return OF::create($request->all());
+        $organization_functions = OF::create($request->all());
+        Logs::create(['description' => "Added $organization_functions->name"]);
+        return 
     }
 
     /**
@@ -43,6 +46,7 @@ class OrganizationFunctions extends Controller
         $of = OF::find($id);
         $of->fill($request->all());
         $of->save();
+        Logs::create(['description' => "$of->name has been updated"]);
     }
 
     /**
@@ -53,6 +57,9 @@ class OrganizationFunctions extends Controller
      */
     public function destroy($id)
     {
-        OF::find($id)->delete();
+        $of = OF::find($id)
+        Logs::create(['description' => "$of->name has been deleted"]);
+        $of->delete();
     }
 }
+?>

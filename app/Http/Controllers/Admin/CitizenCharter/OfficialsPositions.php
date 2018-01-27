@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Models\Admin\OfficialsPositions as OP;
+use App\Models\Logs;
 use Carbon\Carbon;
 use Storage;
 
@@ -42,7 +43,7 @@ class OfficialsPositions extends Controller
                 "disk_name" => $disk_name,
                 "primary" => (OP::where('primary', true)->first() === null),
             ]);
-
+            Logs::create('description' => "Uploaded and saved $op->name");
             return $op;
         }
     }
@@ -59,6 +60,7 @@ class OfficialsPositions extends Controller
             $file->primary = false;
             $file->save();
         }
+        Logs::create('description' => "$file->name has been updated.");
     }
 
     /**
@@ -84,6 +86,7 @@ class OfficialsPositions extends Controller
         
         Storage::disk('public')->delete('officials_positions/' . $file->disk_name);
         
+        Logs::create('description' => "$file->name has been deleted.");
         $file->delete();
     }
 }

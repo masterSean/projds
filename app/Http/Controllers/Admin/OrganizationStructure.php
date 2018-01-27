@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Models\Admin\OrganizationStructure as OS;
+use App\Models\Logs;
 use File;
 use Carbon\Carbon;
 use Storage;
@@ -36,7 +37,7 @@ class OrganizationStructure extends Controller
             $request->file('image')->storeAs('organization_structure', $image_name, 'public');
 
             $os = OS::create($data);
-
+            Logs::create(["description" => 'Uploaded file for organization structure.']);
             return $os;
         }
     }
@@ -53,12 +54,14 @@ class OrganizationStructure extends Controller
             $file->primary = false;
             $file->save();
         }
+        Logs::create(["description" => "$file->name has been uploaded and saved."]);
     }
 
     public function destroy($id)
     {
         $data = OS::find($id);
         Storage::disk('public')->delete('organization_structure/' . $data->file_path);
+        Logs::create(["description" => "$data->name has been deleted."]);
         $data->delete();
     }
 
