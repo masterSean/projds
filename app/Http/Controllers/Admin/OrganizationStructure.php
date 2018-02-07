@@ -71,3 +71,4 @@ class OrganizationStructure extends Controller
         return response()->json($data);
     }
 }
+?>

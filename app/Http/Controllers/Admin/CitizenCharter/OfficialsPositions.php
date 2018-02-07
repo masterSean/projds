@@ -90,3 +90,4 @@ class OfficialsPositions extends Controller
         $file->delete();
     }
 }
+?>

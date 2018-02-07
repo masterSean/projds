@@ -39,3 +39,4 @@ class VisionMission extends Controller
         $vm->delete();
     }
 }
+?>

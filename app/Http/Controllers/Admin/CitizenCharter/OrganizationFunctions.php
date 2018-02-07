@@ -20,7 +20,7 @@ class OrganizationFunctions extends Controller
     {
         $organization_functions = OF::create($request->all());
         Logs::create(['description' => "Added $organization_functions->name"]);
-        return 
+        return $organization_funtions; 
     }
 
     /**
