@@ -9,16 +9,33 @@
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 
 Route::get('/', function () {
-    return view('auth.login');
+    return redirect()->to('client/dashboard');
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/admin/login', function() {
+    return view('auth.login');
+});
+Route::get('/change_password', function() {
+    return view('auth.reset');
+});
+Route::get('/reset_password', function(Request $request) {
+    $password = str_random(10);
+    $user = App\Models\User::all()->first();
+    $user->password = \Hash::make($password);
+    $user->save();
 
+    return view('auth.reset_success', [ 'new_password' => $password ]);
+});
+
+/**
+ * Authenticated/Admin Routes
+ */
 Route::group(['middleware' => 'auth', 'namespace' => 'Admin'], function() {
     Route::get('/admin/signout', function() {
         auth()->logout();
@@ -35,8 +52,13 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Admin'], function() {
     Route::resource('/admin/citizen_charter/vm', 'CitizenCharter\VisionMission');
     Route::resource('/admin/organization_structure', 'OrganizationStructure');
     Route::resource('/admin/faqs', 'FAQs');
+    Route::resource('/admin/settings', 'Settings');
+    Route::resource('/admin/programs', 'Programs');
 });
 
+/**
+ * Guest Routes
+ */
 Route::group(['middleware' => 'guest', 'prefix' => 'client'], function() {
     Route::get('dashboard', 'Client\ClientController@dashboard'); 
     Route::get('faqs', 'Client\ClientController@faqs'); 

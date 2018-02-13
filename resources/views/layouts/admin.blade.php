@@ -13,7 +13,6 @@
     @yield('css')
 </head>
 <body>
-    
     <div class="wrapper">
         <div class="sidebar" data-color="azure">
             <div class="sidebar-wrapper">
@@ -42,13 +41,19 @@
                         </a>
                     </li>
                     <li>
+                        <a href="/admin/programs">
+                            <i class="fa fa-list"></i>
+                            <p>Programs</p>
+                        </a>
+                    </li>
+                    <li>
                         <a href="/admin/faqs">
                             <i class="fa fa-question-circle"></i>
                             <p>FAQs</p>
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="/admin/settings/">
                             <i class="fa fa-gears"></i>
                             <p>Settings</p>
                         </a>

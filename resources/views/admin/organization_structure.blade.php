@@ -30,9 +30,9 @@
                     </td>
                     <td>
                         <div class="btn-group">
-                            <button class="btn btn-default" ng-click="view($index)"><i class="fa fa-image"></i></button>
-                            <button class="btn btn-warning" ng-click="remove($index)"><i class="fa fa-trash"></i></button>
                             <button class="btn btn-info" ng-click="setPrimary($index)"><i class="fa fa-check"></i></button>
+                            <button class="btn btn-default" ng-click="view($index)"><i class="fa fa-image"></i></button>
+                            <button class="btn btn-danger" ng-click="remove($index)"><i class="fa fa-trash"></i></button>
                         </div>
                     </td>
                 </tr>
