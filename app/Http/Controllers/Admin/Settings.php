@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Logs;
 
 class Settings extends Controller
 {
@@ -24,7 +25,7 @@ class Settings extends Controller
             $password = Hash::make($request->password);
             $user->password = $password;
         }
-
+        Logs::create(['description' => 'Updated credentials.']);
         $user->save();
     }
 }
