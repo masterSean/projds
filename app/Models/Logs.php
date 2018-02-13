@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Models\Admin;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
 class Logs extends Model
 {
-    protected $table = "Logs";
+    protected $table = "logs";
 
     protected $primaryKey = "log_id";
 

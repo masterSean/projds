@@ -10,6 +10,7 @@ use App\Models\Admin\OfficialsPositions as OP;
 use App\Models\Admin\OrganizationsFunctions as OF;
 use App\Models\Admin\OrganizationStructure as OS;
 use App\Models\Admin\FAQs as FAQ;
+use App\Models\Logs;
 
 class ClientController extends Controller
 {
@@ -43,3 +44,4 @@ class ClientController extends Controller
         return view('client.organization_structure', [ 'data' => OS::where('primary', true)->first() ]);
     }
 }
+?>

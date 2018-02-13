@@ -20,7 +20,7 @@ class OrganizationFunctions extends Controller
     {
         $organization_functions = OF::create($request->all());
         Logs::create(['description' => "Added $organization_functions->name"]);
-        return $organization_funtions; 
+        return $organization_functions; 
     }
 
     /**
@@ -57,7 +57,7 @@ class OrganizationFunctions extends Controller
      */
     public function destroy($id)
     {
-        $of = OF::find($id)
+        $of = OF::find($id);
         Logs::create(['description' => "$of->name has been deleted"]);
         $of->delete();
     }

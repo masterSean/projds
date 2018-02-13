@@ -12,7 +12,7 @@ class VisionMission extends Controller
 {
     public function store(Request $request)
     {
-        $data = VM::updateOrcreate(['name' => $request->name],['content' => $request->content]);
+        $data = VM::updateOrcreate(['name' => $request->name], ['content' => $request->content]);
         Logs::create(['description' => "Added $data->name"]);
         return $data;
     }

@@ -25,14 +25,11 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Admin'], function() {
         return redirect()->back();
     });
 
-    Route::get('/admin/dashboard', function() {
-        return view('admin.dashboard');
-    });
-
     Route::get('/admin/citizen_charter', function() {
         return view('admin.citizen_charter');
     });
 
+    Route::get('admin/dashboard', 'Logs@index');
     Route::resource('/admin/officials_positions', 'CitizenCharter\OfficialsPositions');
     Route::resource('/admin/organization_functions', 'CitizenCharter\OrganizationFunctions');
     Route::resource('/admin/citizen_charter/vm', 'CitizenCharter\VisionMission');

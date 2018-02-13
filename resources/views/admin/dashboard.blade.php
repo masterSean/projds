@@ -14,19 +14,17 @@
             <table class="table table-striped">
                 <thead>
                 <tr>
-                    <th>Date</th> 
-                    <th>Name</th>
-                    <th>Role</th>
                     <th>Activity</th>
+                    <th>Created At</th>
                 </tr>
                 </thead>
                 <tbody>
+                @foreach ($logs as $key => $value)
                 <tr>
-                    <td>John</td>
-                    <td>John</td>
-                    <td>Doe</td>
-                    <td>John</td>
+                    <td>{!! $value->description !!}</td>
+                    <td>{!! $value->created_at !!}</td>
                 </tr>
+                @endforeach
                 </tbody>
             </table>
         </div>
@@ -37,5 +35,4 @@
 @endsection
 
 @section('script')
-    <script type="text/javascript" src="{{ asset('js/assets/controllers/vision_mission.js') }}"></script>
 @endsection

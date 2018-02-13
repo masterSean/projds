@@ -30,7 +30,7 @@ class FAQs extends Controller
     public function store(Request $request)
     {
         $success = Faq::create($request->all());
-        Logs::create(['description' => 'Added new FAQ']);
+        Logs::create(['description' => "Added $success->question"]);
         return $success; 
     }
 
