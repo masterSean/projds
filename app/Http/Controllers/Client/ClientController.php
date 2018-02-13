@@ -5,12 +5,13 @@ namespace App\Http\Controllers\Client;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-use App\Models\Admin\VisionMission as VM;
+use App\Models\Admin\FAQs as FAQ;
 use App\Models\Admin\OfficialsPositions as OP;
 use App\Models\Admin\OrganizationsFunctions as OF;
 use App\Models\Admin\OrganizationStructure as OS;
-use App\Models\Admin\FAQs as FAQ;
+use App\Models\Admin\VisionMission as VM;
 use App\Models\Logs;
+use App\Models\Programs;
 
 class ClientController extends Controller
 {
@@ -42,6 +43,11 @@ class ClientController extends Controller
     public function organization_structure()
     {
         return view('client.organization_structure', [ 'data' => OS::where('primary', true)->first() ]);
+    }
+
+    public function frontline_services()
+    {
+        return view('client.frontline_services', ['data' => Programs::all()]);
     }
 }
 ?>

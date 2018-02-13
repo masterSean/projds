@@ -67,5 +67,6 @@ Route::group(['middleware' => 'guest', 'prefix' => 'client'], function() {
         Route::get('vision_mission', 'ClientController@vision_mission');
         Route::get('dswd_officials', 'ClientController@officials_positions');
         Route::get('organization_functions', 'ClientController@organization_functions');
+        Route::get('frontline_services', 'ClientController@frontline_services');
     });
 });
