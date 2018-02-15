@@ -15,7 +15,12 @@ class Programs extends Controller
      */
     public function index()
     {
-        return view('admin.programs', ['programs' => ProgramsModel::all()]);
+        return view('admin.programs');
+    }
+
+    public function show($param)
+    {
+        return ProgramsModel::all();
     }
 
     /**
@@ -51,9 +56,9 @@ class Programs extends Controller
             $data['image'] = $this->uploadImage($request->file('image'));
         }
 
-        $program->file($data);
+        $program->fill($data);
 
-        $program->update(); 
+        $program->save(); 
     }
 
     /**
