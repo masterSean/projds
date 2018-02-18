@@ -45,6 +45,7 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Admin'], function() {
     Route::get('/admin/citizen_charter', function() {
         return view('admin.citizen_charter');
     });
+    Route::post('/admin/news/{id}', 'News@update');
 
     Route::get('admin/dashboard', 'Logs@index');
     Route::resource('/admin/officials_positions', 'CitizenCharter\OfficialsPositions');

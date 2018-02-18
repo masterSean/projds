@@ -48,11 +48,12 @@ class News extends Controller
         $data = $request->only(['title', 'description']);
 
         if ($request->hasFile('image')) {
+            Storage::disk('public')->delete('news/' . $news->image);
             $data['image'] = $this->uploadImage($request->file('image'));
+            $news->file($data);
         }
 
-        $news->file($data);
-        $news->update(); 
+        $news->update($data); 
     }
 
     /**
