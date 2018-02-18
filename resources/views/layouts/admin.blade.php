@@ -53,6 +53,12 @@
                         </a>
                     </li>
                     <li>
+                        <a href="/admin/news">
+                            <i class="fa fa-comment-o"></i>
+                            <p>News</p>
+                        </a>
+                    </li>
+                    <li>
                         <a href="/admin/settings/">
                             <i class="fa fa-gears"></i>
                             <p>Settings</p>

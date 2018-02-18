@@ -11,13 +11,14 @@ use App\Models\Admin\OrganizationsFunctions as OF;
 use App\Models\Admin\OrganizationStructure as OS;
 use App\Models\Admin\VisionMission as VM;
 use App\Models\Logs;
+use App\Models\News;
 use App\Models\Programs;
 
 class ClientController extends Controller
 {
     public function dashboard()
     {
-        return view('client.dashboard');
+        return view('client.dashboard', ['data' => News::all() ]);
     }
 
     public function vision_mission()
@@ -48,6 +49,6 @@ class ClientController extends Controller
     public function frontline_services()
     {
         return view('client.frontline_services', ['data' => Programs::all()]);
-    }
+    }    
 }
 ?>
