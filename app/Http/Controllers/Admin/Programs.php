@@ -8,16 +8,6 @@ use App\Models\Programs as ProgramsModel;
 
 class Programs extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        return view('admin.programs');
-    }
-
     public function show($param)
     {
         return ProgramsModel::all();
