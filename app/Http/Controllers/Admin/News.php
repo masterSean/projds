@@ -27,7 +27,6 @@ class News extends Controller
     public function store(Request $request)
     {
         $data = $request->only(['title', 'description']);
-        dd($data);
 
         if ($request->hasFile('image')) {
             $data['image'] = $this->uploadImage($request->file('image'));
@@ -65,6 +64,7 @@ class News extends Controller
     public function destroy($id)
     {
         $news = NewsModel::find($id);
+        Storage::disk('public')->delete('news/' . $news->image);
         $news->delete();
     }
 

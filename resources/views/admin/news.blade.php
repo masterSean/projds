@@ -19,8 +19,8 @@
                 <td>@{{ data.created_at }}</td>
                 <td>
                     <div class="btn-group">
-                        <button class="btn btn-primary" ng-click="edit($index)"><i class="fa fa-edit"></i></button>
-                        <button class="btn btn-danger" ng-click="remove($index)"><i class="fa fa-remove"></i></button>
+                        <button class="btn btn-primary" ng-click="edit($index, data.id)"><i class="fa fa-edit"></i></button>
+                        <button class="btn btn-danger" ng-click="remove($index, data.id)"><i class="fa fa-remove"></i></button>
                     </div>
                 </td>
             </tr>
