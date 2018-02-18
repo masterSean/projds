@@ -33,7 +33,7 @@ class ClientController extends Controller
 
     public function officials_positions()
     {
-        return view('client.officials_positions', [ 'data' => OP::where('primary', true)->first() ]);
+        return view('client.officials_positions', [ 'data' => OP::where('primary', true)->get()->first() ]);
     }
 
     public function faqs()
